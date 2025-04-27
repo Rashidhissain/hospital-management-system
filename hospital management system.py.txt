@@ -1,0 +1,66 @@
+# Hospital Management System
+
+class Patient:
+    def __init__(self, patient_id, name, age, ailment):
+        self.patient_id = patient_id
+        self.name = name
+        self.age = age
+        self.ailment = ailment
+
+    def display_info(self):
+        print(f"Patient ID: {self.patient_id}")
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Ailment: {self.ailment}")
+
+class Doctor:
+    def __init__(self, doctor_id, name, specialty):
+        self.doctor_id = doctor_id
+        self.name = name
+        self.specialty = specialty
+
+    def display_info(self):
+        print(f"Doctor ID: {self.doctor_id}")
+        print(f"Name: {self.name}")
+        print(f"Specialty: {self.specialty}")
+
+class HospitalManagement:
+    def __init__(self):
+        self.patients = []
+        self.doctors = []
+
+    def add_patient(self, patient_id, name, age, ailment):
+        new_patient = Patient(patient_id, name, age, ailment)
+        self.patients.append(new_patient)
+
+    def add_doctor(self, doctor_id, name, specialty):
+        new_doctor = Doctor(doctor_id, name, specialty)
+        self.doctors.append(new_doctor)
+
+    def display_patients(self):
+        print("\nList of Patients:")
+        for patient in self.patients:
+            patient.display_info()
+            print()
+
+    def display_doctors(self):
+        print("\nList of Doctors:")
+        for doctor in self.doctors:
+            doctor.display_info()
+            print()
+
+# Sample usage
+if __name__ == "__main__":
+    system = HospitalManagement()
+
+    # Adding patients
+    system.add_patient(1, "John Doe", 45, "Fever")
+    system.add_patient(2, "Jane Smith", 32, "Fracture")
+
+    # Adding doctors
+    system.add_doctor(101, "Dr. Emily", "Cardiology")
+    system.add_doctor(102, "Dr. Ryan", "Orthopedics")
+
+    # Display information
+    system.display_patients()
+    system.display_doctors()
